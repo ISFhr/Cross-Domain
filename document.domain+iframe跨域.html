@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    注：此方案仅限主域相同，子域不同的跨域应用场景 
+
+    父窗口
+    <iframe id="iframe" 
+        src="http://child.domain.com/b.html">
+    </iframe>
+
+    <script>
+        document.domain = 'domain.com';    
+        var user = 'admin';
+    </script>
+
+    子窗口
+    <script>
+        document.domain = 'domain.com';    
+        // 获取父窗口中变量
+        alert('get js data from parent ---> '+ window.parent.user);
+    </script>
+
+
+
+
+    
+</body>
+</html>
+
+
